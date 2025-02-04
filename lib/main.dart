@@ -1,10 +1,18 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:tp2/home.dart';
 
-void main(){
-  runApp(
-      const Center(
-        child: Text("Hello World !!!",
-          textDirection: TextDirection.ltr,),
-      )
-  );
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        title: "TD2",
+        // theme: MyTheme.dark(),
+        home: Home()
+    );
+  }
+  
 }
