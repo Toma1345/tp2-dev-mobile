@@ -38,15 +38,20 @@ class MyTheme {
       fontWeight: FontWeight.w700,
       color: Colors.white,
     ),
+    headlineLarge: GoogleFonts.openSans(
+      fontSize: 26.0,
+      fontWeight: FontWeight.w700,
+      color: Colors.green,
+    ),
     displayLarge: GoogleFonts.openSans(
       fontSize: 32.0,
       fontWeight: FontWeight.bold,
-      color: Colors.white,
+      color: Colors.green,
     ),
     displayMedium: GoogleFonts.openSans(
       fontSize: 21.0,
       fontWeight: FontWeight.w700,
-      color: Colors.white,
+      color: Colors.green,
     ),
     displaySmall: GoogleFonts.openSans(
       fontSize: 16.0,
