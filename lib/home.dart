@@ -10,7 +10,24 @@ class Home extends StatelessWidget {
         title: Text("Application TD2")
       ),
       body: Center(
-        child: Text("TD2"),
+        child: Text("TD2")
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,
+          items: const <BottomNavigationBarItem> [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.business),
+              label: 'Business',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.school),
+              label: 'School',
+            )
+          ]
       ),
     );
   }
