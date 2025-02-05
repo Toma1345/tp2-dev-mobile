@@ -12,11 +12,20 @@ class Ecran1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
         itemCount: tasks.length,
-        itemBuilder: (context, index) => ListTile(
-          leading: CircleAvatar(child: Text(tasks[index].id.toString()), backgroundColor: Colors.lightBlue,),
-          title: Text(tasks[index].title),
-          subtitle: Text(tasks[index].tags.join(" ")),
-        )
+        itemBuilder: (context, index) =>
+          Card(
+            elevation: 6,
+            margin: const EdgeInsets.all(10),
+            color: Colors.grey,
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Colors.lightGreen,
+                child: Text(tasks[index].id.toString()),
+              ),
+              title: Text(tasks[index].title),
+              subtitle: Text(tasks[index].tags.join(" ")),
+            ),
+          ),
     );
   }
 }
