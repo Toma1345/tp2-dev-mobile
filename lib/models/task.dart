@@ -11,7 +11,7 @@ class Task {
   factory Task.fromJson(Map<String,dynamic> json){
     final tags = <String>[];
     if (json['tags']!=null){
-      json['tags'].foreach((t){
+      json['tags'].forEach((t){
         tags.add(t);
       });
     }
