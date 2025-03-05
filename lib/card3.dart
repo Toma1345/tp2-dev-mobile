@@ -1,15 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:tp2/api/myapi.dart';
 
-class Ecran3 extends StatelessWidget {
-  final myApi = MyApi();
+import 'models/todo.dart';
+
+class Ecran3 extends StatefulWidget {
 
   Ecran3({super.key});
 
   @override
+  State<Ecran3> createState() => _Ecran3State();
+}
+
+class _Ecran3State extends State<Ecran3> {
+  final myApi = MyApi();
+
+  late Future<List<Todo>> futureTodo;
+
+  @override
+  void initState() {
+    super.initState();
+    futureTodo = myApi.getTodos();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: myApi.getTodos(),
+        future: futureTodo,
         builder: (context, snapshot){
           if (snapshot.connectionState!=ConnectionState.done && !snapshot.hasData){
             return const Center(

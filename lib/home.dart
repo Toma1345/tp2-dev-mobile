@@ -38,16 +38,16 @@ class _HomeState extends State<Home> {
         selectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,
           items: const <BottomNavigationBarItem> [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
+              icon: Icon(Icons.card_membership),
+              label: 'Card 1',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.business),
-              label: 'Business',
+              icon: Icon(Icons.card_membership),
+              label: 'Card 2 - API',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.school),
-              label: 'School',
+              icon: Icon(Icons.card_membership),
+              label: 'Card 3 - Api REST',
             )
           ]
       ),
