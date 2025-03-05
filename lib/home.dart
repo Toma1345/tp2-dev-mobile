@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tp2/card1.dart';
 import 'package:tp2/card2.dart';
 import 'package:tp2/card3.dart';
+import 'package:tp2/settings.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -16,7 +17,8 @@ class _HomeState extends State<Home> {
   static List<Widget> pages = <Widget>[
     Ecran1(),
     Ecran2(),
-    Ecran3()
+    Ecran3(),
+    EcranSettings()
   ];
 
   void _onItemTapped(int index) {
@@ -29,7 +31,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Application TD2", style: Theme.of(context).textTheme.headlineLarge)
+        title: Text("Application TD3", style: Theme.of(context).textTheme.headlineLarge)
       ),
       body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -39,7 +41,7 @@ class _HomeState extends State<Home> {
           items: const <BottomNavigationBarItem> [
             BottomNavigationBarItem(
               icon: Icon(Icons.card_membership),
-              label: 'Card 1',
+              label: 'Card 1 - Avec détail',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.card_membership),
@@ -48,6 +50,10 @@ class _HomeState extends State<Home> {
             BottomNavigationBarItem(
               icon: Icon(Icons.card_membership),
               label: 'Card 3 - Api REST',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Settings',
             )
           ]
       ),
