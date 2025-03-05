@@ -1,6 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import '../models/task.dart';
+import '../models/todo.dart';
+
+import 'package:http/http.dart' as http;
 
 class MyApi{
   Future<List<Task>> getTasks() async{
@@ -19,5 +22,19 @@ class MyApi{
   }
   Future<String> _loadAsset(String path) async {
     return rootBundle.loadString(path);
+  }
+
+  Future<List<Todo>> getTodos() async{
+    final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/todos'));
+    if (response.statusCode == 200) {
+      final List<dynamic> json = jsonDecode(response.body);
+      final todos = <Todo>[];
+      for (var element in json){
+        todos.add(Todo.fromJson(element));
+      };
+      return todos;
+    }else {
+      throw Exception('Failed to load todos');
+    }
   }
 }
