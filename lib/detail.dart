@@ -17,7 +17,9 @@ class Detail extends StatelessWidget{
         child: Column(
           children: [
             Text('Description : ${task.description}'),
-            Text('Tags : ${task.tags.join(" ")}')
+            Text('Tags : ${task.tags.join(" ")}'),
+            Text('Difficulty : ${task.difficulty}'),
+            Text('Number of hours : ${task.nbhours}')
           ],
         )
       ),
