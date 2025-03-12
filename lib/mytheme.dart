@@ -9,6 +9,11 @@ class MyTheme {
       fontWeight: FontWeight.w700,
       color: Colors.black,
     ),
+    headlineLarge: GoogleFonts.openSans(
+      fontSize: 26.0,
+      fontWeight: FontWeight.w700,
+      color: Colors.green,
+    ),
     displayLarge: GoogleFonts.openSans(
       fontSize: 32.0,
       fontWeight: FontWeight.bold,
@@ -95,6 +100,13 @@ class MyTheme {
   static ThemeData dark() {
     return ThemeData(
       brightness: Brightness.dark,
+      checkboxTheme: CheckboxThemeData(
+        fillColor: WidgetStateColor.resolveWith(
+              (states) {
+            return Colors.black;
+          },
+        ),
+      ),
       appBarTheme: AppBarTheme(
         foregroundColor: Colors.white,
         backgroundColor: Colors.grey[900],

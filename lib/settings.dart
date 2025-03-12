@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:settings_ui/settings_ui.dart';
 import 'package:tp2/mytheme.dart';
+import 'package:tp2/viewmodels/settingsviewmodels.dart';
 
 class EcranSettings extends StatefulWidget{
   @override
@@ -27,8 +29,12 @@ class _EcranSettingsState extends State<EcranSettings> {
               title: const Text('Theme'),
               tiles: [
                 SettingsTile.switchTile(
-                  initialValue: _dark,
-                  onToggle: _onToggle,
+                  initialValue: context.watch<SettingViewModel>().isDark,
+                  //Provider.of<SettingViewModel>(context).isDark,
+                  onToggle: (bool value) {
+                    context.read<SettingViewModel>().isDark=value;
+                    //Provider.of<SettingViewModel>(context,listen:false).isDark=value;},
+                    },
                   title: const Text('Dark mode'),
                   leading: const Icon(Icons.invert_colors),
                 )
@@ -38,10 +44,13 @@ class _EcranSettingsState extends State<EcranSettings> {
       ),
     );
   }
+
+  /*
   _onToggle(bool value) {
     debugPrint('value $value');
     setState(() {
       _dark = !_dark;
     });
   }
+  */
 }
