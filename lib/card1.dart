@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tp2/detail.dart';
-
 import 'package:tp2/models/task.dart';
+import 'package:tp2/viewmodels/taskviewmodel.dart';
 
 class Ecran1 extends StatelessWidget {
 
-  List<Task> tasks = Task.generateTask(50);
-
-  Ecran1({super.key});
+  late List<Task> tasks;
+  String tags='';
 
   @override
   Widget build(BuildContext context) {
+    tasks = context.watch<TaskViewModel>().liste;
     return ListView.builder(
         itemCount: tasks.length,
         itemBuilder: (context, index) =>
