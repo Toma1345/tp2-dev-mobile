@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tp2/addtask.dart';
 import 'package:tp2/card1.dart';
 import 'package:tp2/card2.dart';
 import 'package:tp2/card3.dart';
@@ -57,6 +58,14 @@ class _HomeState extends State<Home> {
             )
           ]
       ),
+      floatingActionButton: _selectedIndex==0?FloatingActionButton(
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) => AddTask(),
+            ));
+          },
+        child: const Icon(Icons.add),
+      ):const SizedBox.shrink(),
     );
   }
 }

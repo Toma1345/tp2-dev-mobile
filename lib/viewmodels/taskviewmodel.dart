@@ -14,7 +14,7 @@ class TaskViewModel extends ChangeNotifier {
   }
 
   void generateTasks() {
-    liste = Task.generateTask(50);
+    liste = Task.generateTask(10);
     notifyListeners();
   }
 }
