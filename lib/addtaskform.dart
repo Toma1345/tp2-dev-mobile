@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:provider/provider.dart';
+import 'package:tp2/models/task.dart';
+import 'package:tp2/viewmodels/taskviewmodel.dart';
 
 class AddTaskForm extends StatefulWidget {
 
@@ -11,7 +14,7 @@ class AddTaskForm extends StatefulWidget {
 }
 
 class _AddTaskFormState extends State<AddTaskForm> {
-  final _formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormBuilderState>();
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +64,20 @@ class _AddTaskFormState extends State<AddTaskForm> {
                       foregroundColor: Colors.white,
                       backgroundColor: Colors.green
                     ),
-                    onPressed: (){},
+                    onPressed: (){
+                      if(_formKey.currentState!.validate()) {
+                        context.read<TaskViewModel>().addTask(
+                          Task.createTask(
+                            _formKey.currentState?.fields['Title']?.value,
+                            _formKey.currentState?.fields['Description']?.value,
+                            _formKey.currentState?.fields['Tags']?.value,
+                              int.parse(_formKey.currentState?.fields['Difficulty']?.value),
+                            int.parse(_formKey.currentState?.fields['Nbhours']?.value),
+                          )
+                        );
+                      }
+                      Navigator.pop(context);
+                    },
                     child: const Text('Ajouter')
                 )
               ],

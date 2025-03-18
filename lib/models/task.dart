@@ -34,5 +34,10 @@ class Task {
     return tasks;
   }
 
+  factory Task.createTask(String t, String d, String tags, int diff, int nbhours) {
+    nb++;
+    return Task(id: nb, title: t, tags: [tags], nbhours: nbhours, difficulty: diff, description: d);
+  }
+
 
 }
