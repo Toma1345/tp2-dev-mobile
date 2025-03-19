@@ -32,8 +32,9 @@ class Detail extends StatelessWidget{
             ),
             IconButton(
                 onPressed: (){
-                  AddTaskForm(task: task);
-                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => AddTaskForm(task: task),
+                  ));
                 },
                 icon: Icon(Icons.edit)
             )

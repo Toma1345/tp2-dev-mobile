@@ -43,6 +43,9 @@ class Task {
     return task_mod;
   }
 
+  Map<String, Object?> toMap() {
+    return {'id': id, 'title': title, 'description': description, 'tags': tags, 'difficulty': difficulty, 'nbhours': nbhours};
+  }
 
 
 }
