@@ -39,5 +39,10 @@ class Task {
     return Task(id: nb, title: t, tags: [tags], nbhours: nbhours, difficulty: diff, description: d);
   }
 
+  factory Task.editedTask(task_mod) {
+    return task_mod;
+  }
+
+
 
 }

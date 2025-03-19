@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tp2/addtaskform.dart';
+import 'package:tp2/viewmodels/taskviewmodel.dart';
 
 import 'models/task.dart';
 
@@ -19,7 +22,21 @@ class Detail extends StatelessWidget{
             Text('Description : ${task.description}'),
             Text('Tags : ${task.tags.join(" ")}'),
             Text('Difficulty : ${task.difficulty}'),
-            Text('Number of hours : ${task.nbhours}')
+            Text('Number of hours : ${task.nbhours}'),
+            IconButton(
+                onPressed: (){
+                  context.read<TaskViewModel>().deleteTask(task);
+                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.delete)
+            ),
+            IconButton(
+                onPressed: (){
+                  AddTaskForm(task: task);
+                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.edit)
+            )
           ],
         )
       ),

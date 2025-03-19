@@ -7,19 +7,24 @@ import 'package:tp2/viewmodels/taskviewmodel.dart';
 
 class AddTaskForm extends StatefulWidget {
 
-  const AddTaskForm({super.key});
+  final Task task;
+  const AddTaskForm({super.key, required this.task});
 
   @override
-  State<AddTaskForm> createState() => _AddTaskFormState();
+  State<AddTaskForm> createState() => _AddTaskFormState(this.task);
 }
 
 class _AddTaskFormState extends State<AddTaskForm> {
   final _formKey = GlobalKey<FormBuilderState>();
 
+  final Task task;
+
+  _AddTaskFormState(this.task);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+        appBar: AppBar(
         title: Text("Ajouter une task"),
       ),
       body: Center(
@@ -66,6 +71,9 @@ class _AddTaskFormState extends State<AddTaskForm> {
                     ),
                     onPressed: (){
                       if(_formKey.currentState!.validate()) {
+                        if(task.title != "lambda") {
+                          debugPrint("modification task");
+                        }
                         context.read<TaskViewModel>().addTask(
                           Task.createTask(
                             _formKey.currentState?.fields['Title']?.value,

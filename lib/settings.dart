@@ -9,7 +9,7 @@ class EcranSettings extends StatefulWidget{
   State<EcranSettings> createState() => _EcranSettingsState();
 }
 class _EcranSettingsState extends State<EcranSettings> {
-  bool _dark =true;
+  // bool _dark =true;
   @override
   Widget build(BuildContext context) {
     return Center(

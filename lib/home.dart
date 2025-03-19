@@ -4,6 +4,7 @@ import 'package:tp2/addtaskform.dart';
 import 'package:tp2/card1.dart';
 import 'package:tp2/card2.dart';
 import 'package:tp2/card3.dart';
+import 'package:tp2/models/task.dart';
 import 'package:tp2/settings.dart';
 
 class Home extends StatefulWidget {
@@ -31,6 +32,8 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    final task_lambda = Task.createTask("lambda", "", "", 0, 0);
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Application TD3", style: Theme.of(context).textTheme.headlineLarge)
@@ -62,7 +65,7 @@ class _HomeState extends State<Home> {
       floatingActionButton: _selectedIndex==0?FloatingActionButton(
           onPressed: (){
             Navigator.push(context, MaterialPageRoute(
-              builder: (context) => AddTaskForm(),
+              builder: (context) => AddTaskForm(task: task_lambda),
             ));
           },
         child: const Icon(Icons.add),
